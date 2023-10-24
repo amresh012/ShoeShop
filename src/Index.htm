@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe-Shop</title>
+    <!-- Font Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Raleway:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- linke end -->
+    <!-- font Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- box icon -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <!-- Tailwind cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- swiper js link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!--  -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--  -->
+    <div id="myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+        <div class="overlay-content">
+          <form action="#">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    <!--  -->
+    <!-- header section start here -->
+      <header class="">
+        <div class="flex  justify-around items-center ">
+            <div class="flex bg-black text-white justify-between items-center gap-4 p-2  w-fit">
+                <i class="fa fa-telegram py-1 px-2"></i>
+                <b>7Days A Week</b>from 9:00 Am to 7:00 Pm
+                <h1 class="">Call us: 9333828484 <i class="fa fa-mobile-phone text-xl"></i> </h1>
+            </div>
+            <div class="Curncy-dropdown hover:text-orange-400">
+                <span>$</span>Currency
+                <div class="curncy-drp-cntent bg-white">
+                    <p>$USDollar</p>
+                    <p>&euro;Euro</p>
+                    <p>&pound;Pound</p>
+                </div>
+            </div>
+        </div>
+        <nav class="flex gap-[5vw] items-center justify-center w-fulbg-white ">
+            <div class="Logo">
+                <a href="Index.htm"><h1 class="font-bold text-xl">GLA</h1></a>
+            </div>
+            <ul class=" flex gap-12 cursor-pointer ">
+                <li class="hover:text-orange-500 hover:border-b border-orange-500">Air Forces</li>
+                <div class="dropdown">
+                    <li class="hover:text-orange-500">Monk shoe <i class="fa fa-caret-down"></i></li>
+                    <div class="dropdown-content bg-white rounded-md">
+                        <!-- content-1 -->
+                        <ul class="">
+                            <li class="font-bold">Nike Air (2)</li>
+                            <li>New Balance (1)</li>
+                            <li>Nike (1)</li>
+                            <li>Oxford Shoe (1)</li>
+                            <li>Series Air Jordan</li>
+                        </ul>
+                        <!-- content-2 -->
+                        <ul>
+                            <li class="font-bold">Puma (10)</li>
+                            <li>Show All Monk shoe</li>
+                        </ul>
+                    </div>
+                </div>
+                <li class="hover:text-orange-500 hover:border-b border-orange-500">Reebok</li>
+                <li class="hover:text-orange-500 hover:border-b border-orange-500">Brogan</li>
+            </ul>
+            <div class="Option cursor-pointer flex items-center  ">
+                <!-- div-1 -->
+                <div class="openBtn h-full py-8 bg-gray-100" onclick="openSearch()">
+                    <i class="fa fa-search text-xl"></i>
+                    Search
+                    <!-- <input type="search" name="" id=""> -->
+                </div>
+                <!-- div-2 -->
+                <div class="Profile flex items-center gap-2 px-4 text-center">
+                    <i class="fa fa-user"></i>
+                    <div class="dropdown">My profile
+                            <ul class="text-left hover:flex hover:flex-col  dropdown-content  bg-gray-100 w-max ">
+                                <li class="">Log In</li>
+                                <li>Create account</li>
+                                <li>wishlist(0)</li>
+                               
+                            </ul>
+                    </div>
+                </div>
+                <!-- div-3 -->
+                <div class="Cart bg-gray-100 flex items-center">
+                    <i class="fa fa-shopping-cart px-1"></i>
+                    <span class="">My Cart <var class="px-1">(0)</var>
+                        <div id="cart"></div>
+                    </span>
+                    <div class="p-7 bg-orange-500 text-4xl text-white font-bold" onclick="openNav()">
+                        <i class="fa fa-bars" onclick="openNav()"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+      </header> 
+<!-- sidebar -->
+<div id="mySidenav" class="sidenav bg-orange-500">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="Navigation">
+        <h2 class="py-4 font-medium text-white px-12 ">NAVIGATION</h2>
+        <div class="flex justify-around items-center text-white border-b border-gray-300 m-4">
+            <button class="nav-btn hover:bg-white hover:text-black  p-2">MEN</button>
+            <button class="nav-btn  hover:bg-white hover:text-black  p-2">WOMEN</button>
+            <button class="nav-btn  hover:bg-white hover:text-black  p-2">KIDS</button>
+        </div>
+    </div>
+    <div class="sidebar-shoe flex flex-col justify-evenly">
+        <div class="content flex justify-around  items-center ">
+            <div class="bg-white p-2 h-12 w-12  relative mx-4  ">
+                <img src="./Media/New folder/img1.webp" alt="" class="h-max w-max absolute transform translate-x-2 rotate-[30deg]">
+            </div>
+            <div class="">
+                <p class="text-white font-bold  text-sm">Meteor Lace-Up Running...</p>
+                <p class="text-white text-sm">Lorem ipsum dolor sit ame...</p>
+            </div>
+            <div class="mx-2">
+                <button class="flex justify-center items-center bg-white hover:bg-black hover:text-white duration-700  rounded-full p-2 gap-2">More <i class="fa fa-long-arrow-right text-white  p-1 bg-black rounded-full"></i> </button>
+            </div>
+        </div>
+       <!-- 2 -->
+       <div class="content flex justify-around  items-center ">
+        <div class="bg-white p-2 h-12 w-12  relative mx-4 my-4">
+            <img src="./Media/New folder/img2.webp" alt="" class="h-max w-max absolute transform translate-x-2 rotate-[30deg]">
+        </div>
+        <div class="">
+            <p class="text-white font-bold  text-sm">Meteor Lace-Up Running...</p>
+            <p class="text-white text-sm">Lorem ipsum dolor sit ame...</p>
+        </div>
+        <div class="mx-2">
+            <button class="flex justify-center items-center bg-white hover:bg-black hover:text-white duration-700  rounded-full p-2 gap-2">More <i class="fa fa-long-arrow-right text-white  p-1 bg-black rounded-full"></i> </button>
+        </div>
+    </div>
+        <!--  -->
+        <div class="content flex justify-around  items-center ">
+            <div class="bg-white p-2 h-12 w-12  relative mx-4 my-4 ">
+                <img src="./Media/New folder/img3.webp" alt="" class="h-max w-max absolute transform translate-x-2 rotate-[30deg]">
+            </div>
+            <div class="">
+                <p class="text-white font-bold  text-sm">Meteor Lace-Up Running...</p>
+                <p class="text-white text-sm">Lorem ipsum dolor sit ame...</p>
+            </div>
+            <div class="mx-2">
+                <button class="flex justify-center items-center bg-white hover:bg-black hover:text-white duration-700  rounded-full p-2 gap-2">More <i class="fa fa-long-arrow-right text-white  p-1 bg-black rounded-full"></i> </button>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+    <div class="more-categorie flex flex-col border-t py-4 mx-4">
+        <ul class="flex flex-col h-auto" id="MoreCategoryList">
+        </ul>
+    </div>
+  </div>
+<!--  -->
+       <!--main  -->
+       <main class="">
+        <!-- Hero slider -->
+        <div class="border border-blue-300 px-4 m-4 rounded-2xl ">
+            <div class="slideshow-container" >
+                <!-- 1 -->
+                <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="./Media/img2.png" style="width:100%">
+                </div>
+                <!-- 2 -->
+                <div class="mySlides fade">
+              <div class="numbertext"></div>
+              <img src="./Media/img2.png" style="width:100%">
+            </div>
+            <!-- 3 -->
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="./Media/img3.png" style="width:100%">
+            </div>
+            <!-- 4 -->
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="./Media/img4.png" style="width:100%">
+            </div>
+        </div>
+        <!--  -->
+            <br>
+            
+            <div style="text-align:center" class="hidden ">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+            </div>
+            <div class="title-container ">
+                <h1 class="Hero-title" data-aos="fade-right">Trendmark</h1>
+                <p class="text-2xl font-medium ">Sneakers 2023 Limited Edition</p>
+            </div>
+        </div>
+            <!--Hero slider and content end -->
+            <!--***********************************************************************************************
+            ****************************************************************************************************  -->
+            <!-- explore  -->
+            <div class="flex mt-20 mb-2 w-full   ">
+                <!-- Explore card -->
+                <div  class=" bg-black text-white gap-2 font-bold flex justify-center items-center">
+                    <img src="./Media/toparrow.svg" alt="">
+                    <p class="">Explore</p>
+                </div>
+                <!-- product list -->
+                <ul class="flex  bg-black gap-8 text-white text-[12px]" id="tabdata"></ul>
+
+                <!-- product-description -->
+                <div class="">
+                    <div class="bg-black absolute  top-[53.5vh] right-0 w-[42.1vw] h-auto p-12 text-white" >
+                    <div class="">
+                        <!-- div-1 -->
+                    <span class="px-4 inline-block mb-2">~</span>
+                    <h1 class="text-4xl">Classic 2.5 Edge Shoes</h1>
+                    <p class="uppercase">Sneakers 2023 Limited Edition</p>
+                    <p class="text-gray-400">The InstaPump Fury was released in 1994. The shoe
+                        was lace-less and featured Reebok's pump
+                        technology, a reduced midsole, Hexalite cushioning
+                        and a fully synthetic...</p>
+                    </div>
+                    <!-- div-2 -->
+                        <p class="uppercaes inline-block  text-gray-400 bg-gray-600 rounded-md p-1 my-2 cursor-pointer">Show More</p>
+                        <div class="flex gap-12 p-4" style="list-style: none;">
+                            <li class="border-r-2 border-orange-500"><img src="./Media/explorecartImg/img1.webp" alt="" class="hover:translate-y-[-2px] px-4 duration-300 cursor-pointer"></li>
+                            <li class="border-r-2 border-orange-500"><img src="./Media/explorecartImg/img2.webp" alt="" class="hover:translate-y-[-2px] px-4 duration-300 cursor-pointer"></li>
+                            <li class="hover:translate-y-[-2px] duration-300"><img src="./Media/explorecartImg/img3.webp" alt=""></li>
+                        </div>
+                        <!-- div-3 -->
+                        <div class="flex gap-6">
+                            <span>Availiable sizes:</span>
+                            <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                            <p class="hover:bg-white hover:text-black hover:px-2  rounded-md cursor-pointer">36</p>
+                            <p class="hover:bg-white hover:text-black hover:px-2 rounded-md  cursor-pointer">38</p>
+                        </div>
+                        <!-- div-4 -->
+                        <div class="flex gap-12 py-6 ">
+                            <p class="font-bold">780.00 <sub>USD</sub></p>
+                            <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                            <button class="add-to-cart uppercase rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <section class="h-auto">
+                <div class="flex justify-between gap-6 ">
+                    <!-- product -->
+                    <div class="flex flex-col  border border-blue-300 rounded-2xl p-4 mx-24 justify-center">
+                    <div class="flex flex-col justify-evenly gap-4">
+                        <button class="uppercase w-fit rounded-full text-white hover:text-black duration-1000 font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Sneakers</button>
+                        <img src="./Media/Section3Media/imgsshoe.avif" alt="" class="h-max w-max">
+                    </div>
+                    <div class="flex flex-col w-[30vw]   gap-4">
+                        <h1 class="text-4xl font-bold w-26 ">Barley Textured Panelled Low-Top Shoes</h1>
+                        <p class="">SNEAKERS 2023 LIMITED EDITIO</p>
+                        <p class="">Elevate your fashion game with our exquisite collection of shoes. Crafted with precision and attention to detail, these shoes combine comfort and elegance to give...</p>
+                    </div>
+                    <!-- image-container infinite scroll -->
+                    <div class="container">
+                        <img src="./Media/Section3Media/imgsshoe.avif" alt="">
+                        <img src="./Media/Section3Media/Img2.webp" alt="">
+                        <img src="./Media/Section3Media/Img1.avif" alt="">
+                        <img src="./Media/Section3Media/Img2.webp" alt="">
+                        <img src="./Media/Section3Media/Img.avif" alt="">
+                        <img src="./Media/Section3Media/Img3.webp" alt="">
+                       </div>
+                       <!--  -->
+                       <div class="flex gap-6 py-6 w-1/4">
+                        <span>Availiable sizes:</span>
+                        <small class="bg-black text-white h-fit p-2 rounded-md cursor-pointer shadow-md">34</small>
+                        <small class="hover:bg-black hover:text-white h-fit p-2 hover:shadow-md  rounded-md cursor-pointer">36</small>
+                        <small class="hover:bg-black hover:text-white h-fit p-2 hover:shadow-md  rounded-md  cursor-pointer">38</small>
+                    </div>
+                    <div class="flex gap-12 py-6 ">
+                        <p class="font-bold text-2xl">590.00 <sub>USD</sub></p>
+                        <button class="uppercase rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500 text-white">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 text-white rounded-full"></i> </button>
+                    </div>
+                </div>
+                    <!-- Image-container -->
+                    <div class="image-container">
+                        <img src="./Media/Section3Media/bluegirl.webp" alt="" class="h-[100%]">
+                    </div>
+                </div>
+            </section>
+            <!-- All Products section -- -->
+            <section class="h-[80vh] mt-12">
+                <div class="flex justify-around gap-20">
+                    <div class="mx-12 flex gap-4 flex-col">
+                        <h1 class="uppercase">All Products</h1>
+                        <p class="font-bold text-4xl">All the <span>Sneakers</span></p>
+                    </div>
+                    <div class="mx-12 my-6 show-more-btn">
+                        <button class="flex justify-center items-center border-2 hover:bg-black hover:text-white duration-700 border-black rounded-full p-2 gap-2">Show More <i class="fa fa-long-arrow-right text-white  p-1 bg-black rounded-full"></i> </button>
+                    </div>
+                </div>
+                <!--product-slider -->
+                <div class="slider-container border-2 w-fit  flex items-center justify-center">
+                    <!-- button -->
+                    <div class="button flex">
+                        <button class=" bg-orange-500 rounded-full shadow-md m-4 shadow-orange-500 h-12 w-12 relative top-[10rem] left-[2rem] " onclick="right()">&lt;</button>
+                        <button class=" bg-orange-500 rounded-full shadow-md m-4 shadow-orange-500 h-12 w-12 relative top-[10rem] left-[2rem] " onclick="right()">&lt;</button>
+                    </div>
+                    <div class=" flex overflow-clip border-2 border-red-500 w-[70vw] gap-32 p-4">
+                    <!-- 1 -->
+                    <div class="wrapper flex flex-col  h-fit w-[100%] ">
+                    <div class="image-container  flex items-center justify-center">
+                      <img src="./Media/AllProductSectionImage/img1.webp" alt="" class="h-[30vh] rotate-[-10deg] ">
+                      <div class="rating p-2">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                    <div class="content-container bg-gray-200 p-4">
+                      <p class="title text-xl font-bold">Barley Textured Panelled Low-Top Shoes</p>
+                      <!-- <p class="description text-gray-500 mt-4 font-medium">Lorem ipsum dolor sit amet consectet</p> -->
+                      <div class="flex gap-6">
+                        <span>Availiable sizes:</span>
+                        <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                        <p class="  rounded-md cursor-pointer">36</p>
+                        <p class=" rounded-md  cursor-pointer">38</p>
+                    </div>
+                    <div class="icon flex justify-around items-center w-1/2 p-2">
+                      <i class="fa fa-heart"></i>
+                      <i class="fa fa-eye"></i>
+                      <i class="fa fa-windows"></i>
+                    </div>
+                    <div class="flex gap-12 py-2  ">
+                      <p class="font-bold">$799.00 <sub>USD</sub></p>
+                      <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                    </div>
+                    <button class=" uppercase rounded-full text-white font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                    </div>
+                  </div>
+              
+                  <!--end  -->
+                  <!-- 2 -->
+                  <div class="wrapper flex flex-col  h-fit  items-center w-[30vw] ">
+                    <div class="image-container flex items-center">
+                      <img src="./Media/AllProductSectionImage/img2.webp" alt="" class="h-[30vh] rotate-[-10deg] ">
+                      <div class="rating p-2">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                    <div class="content bg-gray-200 p-4">
+                      <p class="title text-xl font-bold">Barley Textured Panelled Low-Top Shoes</p>
+                      <!-- <p class="description text-gray-500 mt-4 font-medium">Lorem ipsum dolor sit amet consectet</p> -->
+                      <div class="flex gap-6">
+                        <span>Availiable sizes:</span>
+                        <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                        <p class="  rounded-md cursor-pointer">36</p>
+                        <p class=" rounded-md  cursor-pointer">38</p>
+                    </div>
+                    <div class="icon flex justify-around items-center w-1/2 p-2">
+                      <i class="fa fa-heart"></i>
+                      <i class="fa fa-eye"></i>
+                      <i class="fa fa-windows"></i>
+                    </div>
+                    <div class="flex gap-12 py-2  ">
+                      <p class="font-bold">$687.00 <sub>USD</sub></p>
+                      <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                    </div>
+                    <button class=" uppercase text-white rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 3 -->
+                  <div class="wrapper  items-center w-[30vw] ">
+                    <div class="image-container flex items-center">
+                      <img src="./Media/AllProductSectionImage/img3.webp" alt="" class="h-[30vh] rotate-[-10deg] ">
+                      <div class="rating p-2">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                    <div class="content bg-gray-200 p-4">
+                      <p class="title text-xl font-bold">Barley Textured Panelled Low-Top Shoes</p>
+                      <!-- <p class="description text-gray-500 mt-4 font-medium">Lorem ipsum dolor sit amet consectet</p> -->
+                      <div class="flex gap-6">
+                        <span>Availiable sizes:</span>
+                        <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                        <p class="  rounded-md cursor-pointer">36</p>
+                        <p class=" rounded-md  cursor-pointer">38</p>
+                    </div>
+                    <div class="icon flex justify-around items-center w-1/2 p-2">
+                      <i class="fa fa-heart"></i>
+                      <i class="fa fa-eye"></i>
+                      <i class="fa fa-windows"></i>
+                    </div>
+                    <div class="flex gap-12 py-2  ">
+                      <p class="font-bold">$490.00 <sub>USD</sub></p>
+                      <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                    </div>
+                    <button class=" uppercase text-white rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 4 -->
+                  <div class="wrapper flex flex-col  h-fit  items-center w-[30vw] ">
+                    <div class="image-container flex  items-center">
+                      <img src="./Media/AllProductSectionImage/img4.webp" alt="" class="h-[30vh] rotate-[-10deg] ">
+                      <div class="rating p-2">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                    <div class="content bg-gray-200 p-4">
+                      <p class="title text-xl font-bold">Barley Textured Panelled Low-Top Shoes</p>
+                      <!-- <p class="description text-gray-500 mt-4 font-medium">Lorem ipsum dolor sit amet consectet</p> -->
+                      <div class="flex gap-6">
+                        <span>Availiable sizes:</span>
+                        <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                        <p class="  rounded-md cursor-pointer">36</p>
+                        <p class=" rounded-md  cursor-pointer">38</p>
+                    </div>
+                    <div class="icon flex justify-around items-center w-1/2 p-2">
+                      <i class="fa fa-heart"></i>
+                      <i class="fa fa-eye"></i>
+                      <i class="fa fa-windows"></i>
+                    </div>
+                    <div class="flex gap-12 py-2  ">
+                      <p class="font-bold">$780.00 <sub>USD</sub></p>
+                      <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                    </div>
+                    <button class=" uppercase text-white rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 5 -->
+                  <div class="wrapper flex flex-col  h-fit  items-center w-[30vw] ">
+                    <div class="image-container flex items-center">
+                      <img src="./Media/AllProductSectionImage/img5.webp" alt="" class="h-[30vh] rotate-[-10deg] ">
+                      <div class="rating p-2">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                    <div class="content bg-gray-200 p-4">
+                      <p class="title text-xl font-bold">Barley Textured Panelled Low-Top Shoes</p>
+                      <!-- <p class="description text-gray-500 mt-4 font-medium">Lorem ipsum dolor sit amet consectet</p> -->
+                      <div class="flex gap-6">
+                        <span>Availiable sizes:</span>
+                        <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                        <p class="  rounded-md cursor-pointer">36</p>
+                        <p class=" rounded-md  cursor-pointer">38</p>
+                    </div>
+                    <div class="icon flex justify-around items-center w-1/2 p-2">
+                      <i class="fa fa-heart"></i>
+                      <i class="fa fa-eye"></i>
+                      <i class="fa fa-windows"></i>
+                    </div>
+                    <div class="flex gap-12 py-2  ">
+                      <p class="font-bold">$679.00 <sub>USD</sub></p>
+                      <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                    </div>
+                    <button class=" uppercase text-white rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 6 -->
+                  <div class="wrapper flex flex-col  h-fit  items-center w-[30vw] ">
+                    <div class="image-container flex items-center">
+                      <img src="./Media/AllProductSectionImage/img6.webp" alt="" class="h-[30vh] rotate-[-10deg] ">
+                      <div class="rating p-2">
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                    </div>
+                    <div class="content bg-gray-200 p-4">
+                      <p class="title text-xl font-bold">Barley Textured Panelled Low-Top Shoes</p>
+                      <!-- <p class="description text-gray-500 mt-4 font-medium">Lorem ipsum dolor sit amet consectet</p> -->
+                      <div class="flex gap-6">
+                        <span>Availiable sizes:</span>
+                        <p class="bg-white text-black px-2  rounded-md cursor-pointer">34</p>
+                        <p class="  rounded-md cursor-pointer">36</p>
+                        <p class=" rounded-md  cursor-pointer">38</p>
+                    </div>
+                    <div class="icon flex justify-around items-center w-1/2 p-2">
+                      <i class="fa fa-heart"></i>
+                      <i class="fa fa-eye"></i>
+                      <i class="fa fa-windows"></i>
+                    </div>
+                    <div class="flex gap-12 py-2  ">
+                      <p class="font-bold">$548.00 <sub>USD</sub></p>
+                      <p class="line-through text-red-500">000.00 <small class="line-through text-red-500">USD</small></p>
+                    </div>
+                    <button class=" uppercase text-white rounded-full font-bold bg-orange-500 px-4 py-2 shadow-lg shadow-orange-500">Add to cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i> </button>
+                    </div>
+                  </div>
+                </div>
+                  <!-- end -->
+                  <!-- button forward -->
+                </div>
+                <!--  -->
+            </section>
+
+            <!-- Best Seller Section -->
+            <section class="bestseller bg-black my-12 h-auto">
+                <div class="bestseller-Title flex justify-around items-center">
+                    <h1 class="text-[10rem] font-bold text-white ">Best<Span class="font-medium">seller</Span></h1>
+                    <div class="">
+                        <button class="flex justify-center items-center border-2 hover:bg-white hover:text-black text-white duration-700 border-white rounded-full p-2 gap-2">Show More <i class="fa fa-long-arrow-right text-white  p-1 bg-black rounded-full"></i></button>
+                    </div>
+                </div>
+                <!-- Product-section -->
+                <div class="product-container">
+                    <div class="tab text-white flex justify-center items-center  gap-20">
+                        <button class="tablinks uppercase hover:bg-white hover:text-black p-2 duration-700" >Men</button>
+                        <button class="tablinks uppercase hover:bg-white hover:text-black p-2 duration-700" >Women</button>
+                        <button class="tablinks uppercase hover:bg-white hover:text-black p-2 duration-700">Kids</button>
+                        <button class="tablinks uppercase hover:bg-white hover:text-black p-2 duration-700">Customize</button>
+                      </div>
+                      <!-- tab data -->
+                      <div class="content-container flex justify-center items-center  gap-12 ">
+                        <!--  -->
+                        <div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                              <div class="card  relative w-[30vw] bg-gray-100 rounded-md">
+                                  <div class="product-image flex justify-around">
+                                    <img src="./Media/AllProductSectionImage/img1.webp" alt=""
+                                    class="w-[300px] ">
+                                    <button class="favroit btn mx-12 relative top-4 left-42 h-12 w-12 bg-black rounded-full"><i class="fa fa-heart-o text-white font-bold"></i></button>
+                                  </div>
+                                  <div class="product-detail">
+                                      <span class="text-2xl font-bold">Literide Perforated Slingback Clogs</span>
+                                      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nesciunt ea quaerat labore, soluta veritatis veniam eos iusto, eius quas a rerum voluptate et dolores magni hic corporis cupiditate odit!</p> -->
+                                      
+                                      <div class="button">
+                                          <div class="price text-xl font-bold">$568.00</div>
+                                      </div>
+                                    <button class="crt-btn bg-orange-500 my-2 p-2 text-white rounded-full shadow-lg shadow-orange-500">Add to Cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i></button>
+                          
+                                  </div>
+                              </div>
+                            </div>
+                          
+                          </div>                           
+                        <!--  end-1-->
+                        <!--  -->
+                        <div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                              <div class="card  relative w-[30vw] bg-gray-100  rounded-md">
+                                  <div class="product-image flex justify-around">
+                                    <img src="./Media/AllProductSectionImage/img2.webp" alt=""
+                                    class="w-[300px] duration-300">
+                                    <button class="favroit btn mx-12 relative top-4 left-42 h-12 w-12 bg-black rounded-full"><i class="fa fa-heart-o text-white font-bold"></i></button>
+                                  </div>
+                                  <div class="product-detail  ">
+                                      <span class="text-2xl font-bold">Literide Perforated Slingback Clogs</span>
+                                      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nesciunt ea quaerat labore, soluta veritatis veniam eos iusto, eius quas a rerum voluptate et dolores magni hic corporis cupiditate odit!</p> -->
+                                      
+                                      <div class="button">
+                                          <div class="price text-xl font-bold">$568.00</div>
+                                      </div>
+                                    <button class="crt-btn bg-orange-500 my-2 p-2 text-white rounded-full shadow-lg shadow-orange-500">Add to Cart <i class="fa fa-shopping-bag bg-white/20 p-1 rounded-full"></i></button>
+                          
+                                  </div>
+                              </div>
+                            </div>
+                          </div> 
+                      </div>
+                </div>
+            </section>
+            <section class="bg-black h-[40vh] flex justify-between items-center">
+              <div class="right-image-container mt-[7rem]">
+                <img src="./Media/New folder/sub-left.avif" alt="">
+              </div>
+              <div class="mid-left-content text-white h-fit  w-[20vw] flex flex-col justify-center">
+                <p>ALL PRODUCTS</p>
+                <h1 class="text-[3rem] font-extrabold">Get 20% off <span>for first order</span></h1>
+              </div>
+              <div class="mid-right-container border-2 gap-12  rounded-[20rem] flex justify-between items-center  h-fit">
+                 <input type="search" name="" id="" placeholder="email address here...">
+                 <i class="fa fa-long-arrow-right border-2 rounded-full bg-white p-4 text-4xl relative  left-[6rem] cursor-pointer"></i>arrow
+              </div>
+              <div class="left-image-container mb-[7rem]">
+                <img src="./Media/New folder/sub-right.avif" alt="">
+              </div>
+            </section>
+       </main>
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<foooter class="footer">
+    <div class="footer-wrapper flex justify-around items-center">
+        <div class="image">
+            <img src="./Media/New folder/left-wave.avif" alt="">
+        </div>
+        <div class="left-content">
+            <div class="Logo">
+                <a href="Index.htm">GLA</a>
+            </div>
+            <div class="left-mid-content">
+                <p>STEP 2023 EDITION</p>
+                <p>Step into the forefront of fashion with our latest collection of shoes. From sleek heels to trendy sneakers.</p>
+            </div>
+            <div class="icon-container">
+                <i class="fa fa-twitter"></i><i class="fa fa-instagram"></i><i class="fa fa-youtube"></i>
+                <i class="fa  fa-sitemap "></i>
+            </div>
+        </div>
+        <!-- rit content -->
+        <div class="right-content h-full ">
+            <div class="Content one">
+                <h1>NAVIGATION:</h1>
+                <ul class="Nav-link Link">
+                    <a href="http://">Search</a>
+                    <a href="http://">All Products</a>
+                    <a href="http://">All Collection</a>
+                    <a href="http://">privacy policy</a>
+                </ul>
+            </div>
+            
+            <div class="Content two">
+                <h1>EXTRA:</h1>
+                <ul class="Extra-link Link">
+                    <a href="http://">about us</a>
+                    <a href="http://">contact us</a>
+                    <a href="http://">faq's</a>
+                    <a href="http://">Shipping & Delivary</a>
+                    <a href="http://">Terms & Condition</a>
+                </ul>
+            </div>
+                <div class="Content three">
+                    <h1>CATEGORIES:</h1>
+                    <ul class="Link Category-link">
+                        <a href="http://">Women</a>
+                        <a href="http://">Men</a>
+                        <a href="http://">Kids</a>
+                        <a href="http://">Featured</a>
+                        <a href="http://">Bestseller</a>
+                        <a href="http://">Latest</a>
+                    </ul>
+                </div>
+            
+            <div class="Content four">
+                <h1>QUICK LINKS:</h1>
+                <ul class="Link Quick-link">
+                    <a href="http://">Sneakers</a>
+                    <a href="http://">Brogue boots</a>
+                    <a href="http://">Leather Shoes</a>
+                    <a href="http://">Running Shoes</a>
+                    <a href="http://">Sports Shoes</a>
+                </ul>
+            </div>
+            
+            
+        </div>
+    </div>
+</foooter>
+
+
+
+
+    <!-- JavaScript -->
+    <script src="data.js"></script>
+    
+</body>
+</html>
+<!-- 
+    font-family: 'Kaushan Script', cursive;
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-sif;
+
+
+
+  <div
+    data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false"
+    data-aos-anchor-placement="top-center"
+  >
+  </div>
+ -->
